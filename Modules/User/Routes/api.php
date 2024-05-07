@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use \Modules\User\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,16 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->group(function(){
+Route::post('/login', [AuthController::class,'postLogin'])->name('login')->middleware('guest');
+
+Route::middleware('auth:sanctum')->group(function(){
     
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
 
+    Route::post('/logout', function (Request $request) {
+        dd($request);
+    })->name('logout');
     
-    Route::post('/user/store', function (Request $request) {
-        return $request->user();
-    })->name('store');
+
 
     
 
