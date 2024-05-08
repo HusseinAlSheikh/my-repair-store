@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Modules\User\Http\Requests\LoginRequest;
+use Modules\User\Transformers\UserResource;
 
 class AuthController extends Controller
 {
@@ -24,11 +25,15 @@ class AuthController extends Controller
         $user = User::where('email',$request->email)->first();
 
         return $this->success([
-            'user' => $user ,
+            'user'  => UserResource::collection([$user]) ,
             'token' => $user->createToken('Api token for '.$user->name)->plainTextToken,
-        ]);
+        ],'Log in Successfully');
     }
 
+    function logout(){
+        Auth::user()->currentAccessToken()->delete();
+        return $this->success([],'Log out successfully');
+    }
     /**
      * Display a listing of the resource.
      * @return Renderable

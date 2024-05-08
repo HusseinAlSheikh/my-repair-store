@@ -17,14 +17,6 @@ class UserController extends Controller
         return view('user::index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
-    public function create()
-    {
-        return view('user::create');
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -46,15 +38,7 @@ class UserController extends Controller
         return view('user::show');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
-    {
-        return view('user::edit');
-    }
+
 
     /**
      * Update the specified resource in storage.

@@ -14,7 +14,7 @@ use \Modules\User\Http\Controllers\AuthController;
 |
 */
 
-Route::post('/login', [AuthController::class,'postLogin'])->name('login')->middleware('guest');
+Route::post('/login', [AuthController::class,'postLogin'])->middleware('guest');
 
 Route::middleware('auth:sanctum')->group(function(){
     
@@ -22,9 +22,7 @@ Route::middleware('auth:sanctum')->group(function(){
         return $request->user();
     });
 
-    Route::post('/logout', function (Request $request) {
-        dd($request);
-    })->name('logout');
+    Route::post('/logout', [AuthController::class,'logout']);
     
 
 
