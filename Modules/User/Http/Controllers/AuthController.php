@@ -14,9 +14,10 @@ use Modules\User\Transformers\UserResource;
 class AuthController extends Controller
 {
     use HttpResponse;
-    public function postLogin(LoginRequest $request ){
-        $request->validated($request->all());
 
+    function login(LoginRequest $request ){
+
+        $request->validated($request->all());
 
         if (!Auth::attempt($request->only(['email','password']))){
             return $this->error('','Credentials do not match',401);
@@ -33,6 +34,12 @@ class AuthController extends Controller
     function logout(){
         Auth::user()->currentAccessToken()->delete();
         return $this->success([],'Log out successfully');
+    }
+
+    function user(Request $request){
+        return $this->success([
+            'user'  => UserResource::collection([$request->user()]) ,
+        ]);
     }
     /**
      * Display a listing of the resource.

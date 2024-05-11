@@ -1,3 +1,7 @@
 {
-    "User": true
+    "User": true,
+    "Stock": true,
+    "Purchases": true,
+    "Sales": true,
+    "MobileRepair": true
 }

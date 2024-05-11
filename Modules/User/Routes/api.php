@@ -14,14 +14,11 @@ use \Modules\User\Http\Controllers\AuthController;
 |
 */
 
-Route::post('/login', [AuthController::class,'postLogin'])->middleware('guest');
+Route::post('/login', [AuthController::class,'login'])
+     ->middleware('guest');
 
 Route::middleware('auth:sanctum')->group(function(){
-    
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    });
-
+    Route::get('/user', [AuthController::class,'user']);
     Route::post('/logout', [AuthController::class,'logout']);
     
 
@@ -29,4 +26,4 @@ Route::middleware('auth:sanctum')->group(function(){
     
 
 
-})->name('user.');
+});

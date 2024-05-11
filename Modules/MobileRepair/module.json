@@ -1,0 +1,13 @@
+{
+    "name": "MobileRepair",
+    "alias": "mobilerepair",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\MobileRepair\\Providers\\MobileRepairServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
