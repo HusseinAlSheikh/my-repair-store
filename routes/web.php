@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return 'APIs Only';
+    return 'APIs Only' . config('app.name');
 });

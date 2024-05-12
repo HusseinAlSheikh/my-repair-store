@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use \Modules\MobileRepair\Entities\BrandModel;
 
 class CreateBrandModelDevicesTable extends Migration
 {
@@ -15,7 +16,9 @@ class CreateBrandModelDevicesTable extends Migration
     {
         Schema::create('brand_model_devices', function (Blueprint $table) {
             $table->id();
-
+            $table->foreignIdFor(BrandModel::class);
+            $table->json('name');
+            $table->string('image');
             $table->timestamps();
         });
     }
