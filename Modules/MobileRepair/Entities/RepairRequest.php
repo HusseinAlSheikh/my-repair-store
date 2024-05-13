@@ -15,4 +15,13 @@ class RepairRequest extends Model
     {
         return \Modules\MobileRepair\Database\factories\RepairRequestFactory::new();
     }
+
+    function repairStatus(){
+        return $this->belongsTo(RepairStatus::class);
+    }
+
+    function brandModelDevice(){
+        return $this->belongsTo(BrandModelDevice::class);
+    }
+
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRepairStatusesTable extends Migration
+class CreateCurrenciesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateRepairStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('repair_statuses', function (Blueprint $table) {
+        Schema::create('currencies', function (Blueprint $table) {
             $table->id();
             $table->json('name');
-            $table->string('color');
-            $table->string('icon');
+            $table->strin('sample');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateRepairStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('repair_statuses');
+        Schema::dropIfExists('currencies');
     }
 }

@@ -15,4 +15,9 @@ class RepairStatus extends Model
     {
         return \Modules\MobileRepair\Database\factories\RepairStatusFactory::new();
     }
+
+
+    function repairRequest(){
+        return $this->hasMany(RepairRequest::class);
+    }
 }

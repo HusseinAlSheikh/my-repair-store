@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use \Modules\MobileRepair\Entities\BrandModelDeviceRepairItem;
+use \Modules\MobileRepair\Entities\RepairRequest;
 
 class CreateRepairRequestItemsTable extends Migration
 {
@@ -15,7 +17,8 @@ class CreateRepairRequestItemsTable extends Migration
     {
         Schema::create('repair_request_items', function (Blueprint $table) {
             $table->id();
-
+            $table->foreignIdFor(BrandModelDeviceRepairItem::class);
+            $table->foreignIdFor(RepairRequest::class);
             $table->timestamps();
         });
     }

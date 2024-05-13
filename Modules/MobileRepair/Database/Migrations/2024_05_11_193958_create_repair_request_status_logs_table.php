@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use \App\Models\User;
+use \Modules\MobileRepair\Entities\RepairRequest;
+use \Modules\MobileRepair\Entities\RepairStatus;
 
 class CreateRepairRequestStatusLogsTable extends Migration
 {
@@ -15,7 +18,9 @@ class CreateRepairRequestStatusLogsTable extends Migration
     {
         Schema::create('repair_request_status_logs', function (Blueprint $table) {
             $table->id();
-
+            $table->foreignIdFor(RepairRequest::class);
+            $table->foreignIdFor(RepairStatus::class);
+            $table->foreignIdFor(User::class);
             $table->timestamps();
         });
     }

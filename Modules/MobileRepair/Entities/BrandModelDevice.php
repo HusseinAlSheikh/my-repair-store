@@ -15,4 +15,21 @@ class BrandModelDevice extends Model
     {
         return \Modules\MobileRepair\Database\factories\BrandModelDeviceFactory::new();
     }
+
+
+    function products(){
+        return $this->hasMany(Product::class);
+    }
+
+    function brandModel(){
+        return $this->belongsTo(BrandModel::class);
+    }
+
+    function brandModelDeviceRepairItems(){
+        return $this->hasMany(BrandModelDeviceRepairItem::class);
+    }
+
+    function repairRequest(){
+        return $this->hasMany(RepairRequest::class);
+    }
 }

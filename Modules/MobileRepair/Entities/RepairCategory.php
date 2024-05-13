@@ -15,4 +15,9 @@ class RepairCategory extends Model
     {
         return \Modules\MobileRepair\Database\factories\RepairCategoryFactory::new();
     }
+
+
+    function brands(){
+        $this->hasMany(Brand::class);
+    }
 }

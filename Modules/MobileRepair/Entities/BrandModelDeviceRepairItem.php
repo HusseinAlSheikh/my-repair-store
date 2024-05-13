@@ -15,4 +15,11 @@ class BrandModelDeviceRepairItem extends Model
     {
         return \Modules\MobileRepair\Database\factories\BrandModelDeviceRepairItemFactory::new();
     }
+
+
+    function brandModelDevice(){
+        return $this->belongsTo(BrandModelDevice::class);
+    }
+
+
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\MobileRepair\Entities;
+namespace Modules\Stocks\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class RepairRequestItem extends Model
+class Currency extends Model
 {
     use HasFactory;
 
@@ -13,8 +13,6 @@ class RepairRequestItem extends Model
     
     protected static function newFactory()
     {
-        return \Modules\MobileRepair\Database\factories\RepairRequestItemFactory::new();
+        return \Modules\Stocks\Database\factories\CurrencyFactory::new();
     }
-
-
 }
