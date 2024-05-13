@@ -15,4 +15,15 @@ class ContactGroup extends Model
     {
         return \Modules\Contacts\Database\factories\ContactGroupFactory::new();
     }
+
+
+    function customers() {
+        return $this->hasMany(Customer::class);
+    }
+
+    
+    function supplier() {
+        return $this->hasMany(Supplier::class);
+    }
+    
 }

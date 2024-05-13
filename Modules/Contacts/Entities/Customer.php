@@ -15,4 +15,10 @@ class Customer extends Model
     {
         return \Modules\Contacts\Database\factories\CustomerFactory::new();
     }
+
+    
+    function contactGroup() {
+        return $this->belongsTo(ContactGroup::class);
+    }
+
 }

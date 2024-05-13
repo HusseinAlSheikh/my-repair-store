@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Modules\Contacts\Entities\ContactGroup;
 
 class CreateCustomersTable extends Migration
 {
@@ -15,7 +16,15 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-
+            $table->foreignIdFor(ContactGroup::class);
+            $table->string('name');
+            $table->string('code');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('country');
+            $table->string('city');
+            $table->string('tax_number');
+            $table->string('address');
             $table->timestamps();
         });
     }
