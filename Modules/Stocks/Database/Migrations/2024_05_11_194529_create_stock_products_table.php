@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use \Modules\Stocks\Entities\Stock;
+use \Modules\Stocks\Entities\Product;
 
 class CreateStockProductsTable extends Migration
 {
@@ -15,7 +17,9 @@ class CreateStockProductsTable extends Migration
     {
         Schema::create('stock_products', function (Blueprint $table) {
             $table->id();
-
+            $table->foreignIdFor(Stock::class);
+            $table->foreignIdFor(Product::class);
+            $table->bigInteger('quantity');
             $table->timestamps();
         });
     }

@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use \Modules\Stocks\Entities\StockTransactionType;
-use \Modules\Stocks\Entities\Stock;
+use \App\Models\User;
+use \Modules\MobileRepair\Entities\Brand;
 
-class CreateStockTransactionsTable extends Migration
+class CreateBranchUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +15,10 @@ class CreateStockTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('stock_transactions', function (Blueprint $table) {
+        Schema::create('branch_users', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(StockTransactionType::class);
-            $table->foreignIdFor(Stock::class);
-
+            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(Brand::class);
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateStockTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stock_transactions');
+        Schema::dropIfExists('branch_users');
     }
 }
