@@ -15,7 +15,7 @@ class CreateStockTransactionTypesTable extends Migration
     {
         Schema::create('stock_transaction_types', function (Blueprint $table) {
             $table->id();
-            $table->string('trans_code');
+            $table->string('code');
             $table->json('name');
             $table->timestamps();
         });
